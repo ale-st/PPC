@@ -5,19 +5,21 @@ double func(double x) {
     return (double) pow(x,2)-4*x+8;
 }
 
-double antiFunc(double x) {
-    return (pow(x,3)/3)-(2*pow(x,2))+8*x;
-}
-
-double integraFunc(double a, double b) {
+double integra(double a, double b) {
+    double altura, largura;
     if (a > b) {
-        return antiFunc(a) - antiFunc(b);
+        return integra(b,a);
     }
-    return antiFunc(b) - antiFunc(a);
+    if (func(a) < func(b)) {
+        
+    }
+    altura = func(b) - func(a);
+    largura = b - a;
+    return altura*largura;
 }
 
 int main() {
-    //printf("%lf", integraFunc(1,5));
+    printf("%lf", integra(1,5));
 
     return 0;
 }
